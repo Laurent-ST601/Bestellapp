@@ -39,8 +39,8 @@ header {
 .content-wrapper {
 
   display: flex;
-  border-style: solid;
-  border-color: #f46303;
+  /* border-style: solid;
+  border-color: #f46303; */
 
 
 }
