@@ -1,0 +1,194 @@
+body {
+  margin: 0;
+  /* background: url(./assets/img/Background/Weinkeller\ Neonblau.png); */
+  background-color: #FFE4CE;
+
+
+
+
+}
+
+header {
+
+  background-color: #03a9f4;
+
+}
+
+
+.img-header {
+  width: 90px;
+  margin: 18px;
+
+}
+
+.foodheader {
+  width: 100%;
+  height: auto;
+
+
+}
+
+
+.content {
+  width: calc(100% - 300px);
+  padding: 16px;
+
+
+}
+
+.content-wrapper {
+
+  display: flex;
+  border-style: solid;
+  border-color: #f46303;
+
+
+}
+
+
+.basket-wrapper {
+  width: 300px;
+  flex-grow: 1;
+  padding: 16px;
+  /* text-align: center; */
+  border-style: solid;
+  border-color: #03a9f4;
+
+
+}
+
+.basket {
+  width: 100%;
+  height: 400px;
+  position: sticky;
+  top: 0;
+  color: black;
+  font-family: "Nanum Gothic Coding", monospace;
+  font-weight: 400;
+  font-style: normal;
+  margin: 15px;
+
+
+
+}
+
+
+
+h2 {
+  color: black;
+  font-family: "Nanum Gothic Coding", monospace;
+  font-weight: 400;
+  font-style: bold;
+  display: flex;
+  text-align: center;
+
+
+
+
+}
+
+/* h3{
+    margin-block: 50px; 
+ } */
+
+p {
+  color: black;
+  font-family: "Nanum Gothic Coding", monospace;
+  font-weight: 400;
+  font-style: unset;
+  font-size: 25px;
+  text-align: center;
+
+
+}
+
+
+
+hr {
+  hr {
+    border: none;
+    border-top: 3px;
+    color: black;
+    overflow: visible;
+    text-align: center;
+    height: 5px;
+  }
+
+  hr::after {
+    background: white;
+
+    padding: 0 4px;
+    position: relative;
+    top: -13px;
+  }
+
+}
+
+.main_dishes_section {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 30px;
+}
+
+.dessert_dishes_section {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 30px;
+
+}
+
+
+.drink_dishes_section {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+  margin-top: 30px;
+
+}
+
+table {
+
+  padding: 10px 15px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #03a9f4;
+
+}
+
+
+th {
+  color: black;
+  font-family: "Nanum Gothic Coding", monospace;
+  font-weight: 400;
+}
+
+td {
+  color: black;
+  font-family: "Nanum Gothic Coding", monospace;
+  font-weight: 400;
+}
+
+
+.img-dishes {
+
+  width: 120px;
+
+}
+
+.menutext {
+  color: white;
+  font-family: "Nanum Gothic Coding", monospace;
+  font-weight: 400;
+  font-size: 15px;
+
+}
+
+.menuspace {
+  margin: 10px;
+  text-align: left;
+
+}
+
+
