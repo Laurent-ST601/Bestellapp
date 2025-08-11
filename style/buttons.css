@@ -1,6 +1,6 @@
 .btn {
     background-color: transparent;
-    background-image: url('assets/img/Icons/add_circle_24dp_03A9F4_FILL0_wght400_GRAD0_opsz24.png');
+    background-image: url("assets/img/Icons/add-button");
     border: none;
     width: 24px;
     padding: 12px;
@@ -16,7 +16,7 @@ button:active {
 
 .deletbutton {
     background-color: transparent;
-    background-image: url('./assets/img/Icons/delete_24dp_03A9F4_FILL0_wght400_GRAD0_opsz24.png');
+    background-image: url("./assets/img/Icons/delete-button.png");
     border: none;
     width: 24px;
     padding: 12px;
