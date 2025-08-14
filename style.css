@@ -22,8 +22,10 @@ header {
 }
 
 .foodheader {
-  width: 100%;
   height: auto;
+  max-width: 100%;
+  aspect-ratio: 5 / 1;
+  object-fit: cover;
 
 
 }
@@ -39,8 +41,7 @@ header {
 .content-wrapper {
 
   display: flex;
-  /* border-style: solid;
-  border-color: #f46303; */
+
 
 
 }
@@ -50,9 +51,10 @@ header {
   width: 300px;
   flex-grow: 1;
   padding: 16px;
-  /* text-align: center; */
   border-style: solid;
   border-color: #03a9f4;
+  position: sticky;
+  top: 0;
 
 
 }
@@ -60,13 +62,14 @@ header {
 .basket {
   width: 100%;
   height: 400px;
-  position: sticky;
-  top: 0;
   color: black;
   font-family: "Nanum Gothic Coding", monospace;
   font-weight: 400;
   font-style: normal;
   margin: 15px;
+  position: sticky;
+  top: 0;
+
 
 
 
@@ -168,7 +171,7 @@ td {
   font-weight: 400;
 }
 
-tr{
+tr {
   display: flex;
   justify-content: space-between;
 }
@@ -192,4 +195,11 @@ tr{
   margin: 10px;
   text-align: left;
 
+}
+
+.dessert-img {
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 5 / 1;
+  object-fit: cover;
 }
