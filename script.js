@@ -1,11 +1,11 @@
 
 
-let keys = Object.keys(mymenu,mydesirt,mydrinks);
+let keys = Object.keys(mymenu, mydesirt, mydrinks);
 let dishes = [];
 let basket = [];
 
-const SHIPPING_COST = 2.50; // 2,50€ Lieferkosten
-const FREE_SHIPPING_THRESHOLD = 25; // Ab 25€ ist die Lieferung kostenlos
+const SHIPPING_COST = 2.50; 
+const FREE_SHIPPING_THRESHOLD = 25; 
 
 function init() {
     loadDishes();
@@ -13,21 +13,21 @@ function init() {
 }
 
 function loadDishes() {
-    // Lade Hauptgerichte
+    
     const mainDishKeys = Object.keys(mymenu);
     for (let i = 0; i < mainDishKeys.length; i++) {
         let key = mainDishKeys[i];
         dishes.push({ ...mymenu[key], category: 'main' });
     }
 
-    // Lade Nachspeisen
+    
     const dessertKeys = Object.keys(mydesirt);
     for (let i = 0; i < dessertKeys.length; i++) {
         let key = dessertKeys[i];
         dishes.push({ ...mydesirt[key], category: 'dessert' });
     }
 
-    // Lade Getränke
+    
     const drinkKeys = Object.keys(mydrinks);
     for (let i = 0; i < drinkKeys.length; i++) {
         let key = drinkKeys[i];
@@ -125,60 +125,64 @@ function renderBasekt() {
 }
 
 function order() {
-  alert('Ihre Bestellung wurde erfolgreich aufgegeben!');
-  basket = []; 
-  renderBasekt(); 
+    alert('Ihre Bestellung wurde erfolgreich aufgegeben!');
+    basket = [];
+    renderBasekt();
 }
 
 function addmenutobasket(basketAddIndex) {
-  let dish = dishes[basketAddIndex];
-  let existingDishIndex = basket.findIndex(item => item.name === dish.name);
+    let dish = dishes[basketAddIndex];
+    let existingDishIndex = basket.findIndex(item => item.name === dish.name);
 
-  if (existingDishIndex > -1) {
-    basket[existingDishIndex].amount++;
-  } else {
-    dish.amount = 1;
-    basket.push(dish);
-  }
+    if (existingDishIndex > -1) {
+        basket[existingDishIndex].amount++;
+    } else {
+        dish.amount = 1;
+        basket.push(dish);
+    }
 
-  renderBasekt();
+    renderBasekt();
+}
+
+function toggleBasketOverlay() {
+    const basketOverlay = document.querySelector('.basket-wrapper');
+    const mobileButton = document.querySelector('.responsive-basket-btn');
+
+    // Umschalten der 'active' Klasse für das Overlay
+    basketOverlay.classList.toggle('active');
+
+    // Umschalten der 'hidden' Klasse für den mobilen Button
+    mobileButton.classList.toggle('hidden');
 }
 
 
 function renderBasekt() {
     let myBasket = document.getElementById('addmenutobasket');
-    myBasket.innerHTML = `
-        
-    `;
+    myBasket.innerHTML = ''; 
 
-    // Prüfen, ob der Warenkorb leer ist
+    
+    myBasket.innerHTML += `<button class="close-overlay-btn" onclick="toggleBasketOverlay()">Back</button>`;
+
     if (basket.length === 0) {
         myBasket.innerHTML += `
             <p>Dein Warenkorb ist noch leer.</p>
         `;
+        document.getElementById('totalPriceMobile').innerText = '0,00 €'; 
+
     } else {
-        // Wenn der Warenkorb Gerichte enthält, zeige sie an
         for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
             myBasket.innerHTML += getBasketTemplate(indexBasket);
         }
 
         let totals = calculateTotal();
+        document.getElementById('totalPriceMobile').innerText = `${totals.total} €`;
 
         myBasket.innerHTML += `
             <div class="basket-total">
                 <hr>
-                <div>
-                    <span>Zwischensumme:</span>
-                    <span>${totals.subtotal}€</span>
-                </div>
-                <div>
-                    <span>Lieferkosten:</span>
-                    <span>${totals.shippingCost}€</span>
-                </div>
-                <div>
-                    <span><b>Gesamt:</b></span>
-                    <span><b>${totals.total}€</b></span>
-                </div>
+                <div><span>Zwischensumme:</span><span>${totals.subtotal}€</span></div>
+                <div><span>Lieferkosten:</span><span>${totals.shippingCost}€</span></div>
+                <div><span><b>Gesamt:</b></span><span><b>${totals.total}€</b></span></div>
                 <button class="basketpay" onclick="order()">Bestellen</button>
             </div>
         `;

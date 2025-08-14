@@ -1,80 +1,41 @@
-/* Media Query für Bildschirme bis zu 768px Breite (Tablets und kleinere Geräte) */
+
 @media (max-width: 768px) {
-  /* Stapelt den Hauptinhalt und den Warenkorb vertikal */
-  .content-wrapper {
-    flex-direction: column;
-    align-items: center;
-  }
+    
 
-  /* Passt die Breite der Inhaltssektion und des Warenkorbs an */
-  .content,
-  .basket-wrapper {
-    width: 95%; /* Nutzt fast die gesamte Bildschirmbreite */
-    margin-top: 20px;
-  }
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .basket-wrapper {
+        display: none; 
+    }
 
-  /* Ändert die Positionierung des Warenkorbs */
-  .basket-wrapper {
-    position: static; /* Der Warenkorb wird nicht mehr oben fixiert */
-    border-style: none; /* Entfernt den Rahmen für ein saubereres Aussehen */
-  }
+   
+    .basket-wrapper.active {
+        display: block; 
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: #FFE4CE;
+        z-index: 101; 
+        padding: 20px;
+        box-sizing: border-box;
+        overflow-y: auto;
+    }
 
-  /* Ändert die Größe der Bilder im Header */
-  .img-header {
-    width: 70px;
-    margin: 10px;
-  }
+    
+    .responsive-basket-btn {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 15px;
+    }
 
-  /* Stellt sicher, dass das Hintergrundbild nicht zu groß ist */
-  .foodheader {
-    height: 150px;
-    object-fit: cover; /* Schneidet das Bild zu, damit es passt, ohne sich zu verzerren */
-  }
-
-  /* Macht die Tabellen in den Menüabschnitten stapelbar */
-  table {
-    display: block;
-    width: 100%;
-    margin-bottom: 20px;
-  }
-
-  tr,
-  td,
-  th {
-    display: block;
-    width: 100%;
-    box-sizing: border-box;
-    text-align: left;
-  }
-
-  th {
-    padding-bottom: 5px;
-  }
-
-  /* Positioniert den "Hinzufügen"-Button richtig */
-  .btn {
-    float: right;
-    margin-right: 10px;
-  }
-}
-
-/* Media Query für sehr kleine Bildschirme (Handys im Hochformat) */
-@media (max-width: 480px) {
-  h2 {
-    font-size: 1.5rem; /* Verkleinert die Überschriften */
-  }
-
-  .img-header {
-    width: 60px;
-  }
-
-  .foodheader {
-    height: 120px;
-  }
-
-  /* Verkleinert die Social-Media-Symbole im Footer */
-  .socialContainer {
-    width: 40px;
-    height: 40px;
-  }
+    
+    .responsive-basket-btn.hidden {
+        display: none;
+    }
 }

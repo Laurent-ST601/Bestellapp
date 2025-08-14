@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="style/buttons.css">
   <link rel="stylesheet" href="style/footer.css">
   <link rel="stylesheet" href="style/mediaQuery.css">
+  <link rel="stylesheet" href="style/respButton.css">
   <script src="./scripts/ds.js"></script>
   <script src="./script.js"></script>
   <script src="./scripts/template.js"></script>
@@ -34,9 +35,9 @@
 
 
   <main>
-    
-      <img class="foodheader" src="./assets/img/Background/headerimg4.jpg" alt="Hintergrundbild header">
-    
+
+    <img class="foodheader" src="./assets/img/Background/headerimg4.jpg" alt="Hintergrundbild header">
+
 
     <div class="content-wrapper">
       <section class="content">
@@ -71,9 +72,16 @@
         <div id="addmenutobasket" class="basket"></div>
       </section>
     </div>
+
+    <button class="responsive-basket-btn" onclick="toggleBasketOverlay()">
+      <span>Warenkorb öffnen</span>
+      <span id="totalPriceMobile">0,00 €</span>
+    </button>
+
   </main>
 
   <footer>
+
     <div class="card">
       <a class="socialContainer containerOne" href="#">
         <svg viewBox="0 0 16 16" class="socialSvg instagramSvg">

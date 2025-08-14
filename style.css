@@ -87,9 +87,6 @@ h2 {
 
 }
 
-/* h3{
-    margin-block: 50px; 
- } */
 
 p {
   color: black;
@@ -162,7 +159,7 @@ th {
   color: black;
   font-family: "Nanum Gothic Coding", monospace;
   font-weight: 400;
- 
+
 }
 
 td {
@@ -171,7 +168,10 @@ td {
   font-weight: 400;
 }
 
-
+tr{
+  display: flex;
+  justify-content: space-between;
+}
 
 
 .img-dishes {

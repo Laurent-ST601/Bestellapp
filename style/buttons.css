@@ -8,6 +8,7 @@
     cursor: pointer;
     background-size: cover;
     background-position: center;
+    text-align: start;
     display: flex;
     align-items: flex-end;
     justify-content:center ;
