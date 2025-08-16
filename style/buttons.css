@@ -11,8 +11,8 @@
     text-align: start;
     display: flex;
     align-items: flex-end;
-    justify-content:center ;
-   
+    justify-content: center;
+
 }
 
 button:active {
@@ -209,4 +209,12 @@ button:active {
     margin-top: 10px;
     margin-left: 15px;
 
+}
+
+.close-overlay-btn {
+    display: none; 
+}
+
+.responsive-basket-btn{
+    display: none;
 }

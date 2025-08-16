@@ -27,7 +27,25 @@
     }
 
     
-    .responsive-basket-btn {
+    
+
+    .close-overlay-btn {
+    display: block;
+    padding: 5px;
+    background-color: #03a9f4;
+    color: white;
+    border: none;
+    font-family: "Nanum Gothic Coding", monospace;
+    font-weight: 700;
+    font-style: normal;
+    padding: 6px;
+    border-radius: 10px;
+
+
+
+}
+
+.responsive-basket-btn {
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -38,4 +56,10 @@
     .responsive-basket-btn.hidden {
         display: none;
     }
+
+
+
+
+
+    
 }

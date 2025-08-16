@@ -15,9 +15,17 @@ header {
 }
 
 
-.img-header {
+.logo-header {
   width: 90px;
   margin: 18px;
+
+}
+
+.banner {
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 5 / 1;
+  object-fit: cover;
 
 }
 
@@ -26,7 +34,7 @@ header {
   max-width: 100%;
   aspect-ratio: 5 / 1;
   object-fit: cover;
-
+  margin-top: 5px;
 
 }
 
@@ -55,6 +63,7 @@ header {
   border-color: #03a9f4;
   position: sticky;
   top: 0;
+  margin-right: 15px;
 
 
 }
@@ -86,6 +95,19 @@ h2 {
   text-align: center;
 
 
+
+
+}
+
+h3 {
+
+  color: black;
+  font-family: "Nanum Gothic Coding", monospace;
+  font-weight: 400;
+  font-style: bold;
+  display: flex;
+  text-align: center;
+  padding-left: 10px;
 
 
 }
@@ -202,4 +224,9 @@ tr {
   max-width: 100%;
   aspect-ratio: 5 / 1;
   object-fit: cover;
+}
+
+.mealrating {
+  color: #03a9f4;
+  padding-left: 10px;
 }

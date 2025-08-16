@@ -10,6 +10,7 @@ const FREE_SHIPPING_THRESHOLD = 25;
 function init() {
     loadDishes();
     renderDishes();
+    renderBasekt()
 }
 
 function loadDishes() {
@@ -113,16 +114,16 @@ function removeDishFromBasket(index) {
     renderBasekt();
 }
 
-function renderBasekt() {
-    let myBasket = document.getElementById('addmenutobasket');
-    myBasket.innerHTML = "";
+// function renderBasekt() {
+//     let myBasket = document.getElementById('addmenutobasket');
+//     myBasket.innerHTML = "";
 
 
 
-    for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
-        myBasket.innerHTML += getBasketTemplate(indexBasket);
-    }
-}
+//     for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
+//         myBasket.innerHTML += getBasketTemplate(indexBasket);
+//     }
+// }
 
 function order() {
     alert('Ihre Bestellung wurde erfolgreich aufgegeben!');
