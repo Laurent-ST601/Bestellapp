@@ -4,8 +4,8 @@ let keys = Object.keys(mymenu, mydesirt, mydrinks);
 let dishes = [];
 let basket = [];
 
-const SHIPPING_COST = 2.50; 
-const FREE_SHIPPING_THRESHOLD = 25; 
+const SHIPPING_COST = 2.50;
+const FREE_SHIPPING_THRESHOLD = 25;
 
 function init() {
     loadDishes();
@@ -14,21 +14,21 @@ function init() {
 }
 
 function loadDishes() {
-    
+
     const mainDishKeys = Object.keys(mymenu);
     for (let i = 0; i < mainDishKeys.length; i++) {
         let key = mainDishKeys[i];
         dishes.push({ ...mymenu[key], category: 'main' });
     }
 
-    
+
     const dessertKeys = Object.keys(mydesirt);
     for (let i = 0; i < dessertKeys.length; i++) {
         let key = dessertKeys[i];
         dishes.push({ ...mydesirt[key], category: 'dessert' });
     }
 
-    
+
     const drinkKeys = Object.keys(mydrinks);
     for (let i = 0; i < drinkKeys.length; i++) {
         let key = drinkKeys[i];
@@ -99,9 +99,12 @@ function getBasketTemplate(indexBasket) {
     return `
         <div>
             <span>${basketItem.name} - ${basketItem.price.toFixed(2)}€</span>
-            <button onclick="increaseDishAmount(${indexBasket})">+</button>
-            <button onclick="decreaseDishAmount(${indexBasket})">-</button>
+            <br>
+            <button class="Amountbuttons" onclick="increaseDishAmount(${indexBasket})">+</button>
+            <button class="Amountbuttons" onclick="decreaseDishAmount(${indexBasket})">-</button>
+            <br>
             <span>Menge: ${basketItem.amount}</span>
+            <br>
             <button class="deletbutton" onclick="removeDishFromBasket(${indexBasket})"></button>
         </div>
     `;
@@ -114,16 +117,6 @@ function removeDishFromBasket(index) {
     renderBasekt();
 }
 
-// function renderBasekt() {
-//     let myBasket = document.getElementById('addmenutobasket');
-//     myBasket.innerHTML = "";
-
-
-
-//     for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
-//         myBasket.innerHTML += getBasketTemplate(indexBasket);
-//     }
-// }
 
 function order() {
     alert('Ihre Bestellung wurde erfolgreich aufgegeben!');
@@ -159,16 +152,16 @@ function toggleBasketOverlay() {
 
 function renderBasekt() {
     let myBasket = document.getElementById('addmenutobasket');
-    myBasket.innerHTML = ''; 
+    myBasket.innerHTML = '';
 
-    
+
     myBasket.innerHTML += `<button class="close-overlay-btn" onclick="toggleBasketOverlay()">Back</button>`;
 
     if (basket.length === 0) {
         myBasket.innerHTML += `
             <p>Dein Warenkorb ist noch leer.</p>
         `;
-        document.getElementById('totalPriceMobile').innerText = '0,00 €'; 
+        document.getElementById('totalPriceMobile').innerText = '0,00 €';
 
     } else {
         for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {

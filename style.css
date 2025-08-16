@@ -124,27 +124,16 @@ p {
 
 }
 
-
-
-hr {
-  hr {
-    border: none;
-    border-top: 3px;
-    color: black;
-    overflow: visible;
-    text-align: center;
-    height: 5px;
-  }
-
-  hr::after {
-    background: white;
-
-    padding: 0 4px;
-    position: relative;
-    top: -13px;
-  }
-
+hr{
+  width: 90%;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  height: 3px;
+ 
+  background-color: #03a9f4;
 }
+
+
 
 .main_dishes_section {
   display: flex;
@@ -183,8 +172,7 @@ table {
 th {
   color: black;
   font-family: "Nanum Gothic Coding", monospace;
-  font-weight: 400;
-
+  
 }
 
 td {
@@ -230,3 +218,4 @@ tr {
   color: #03a9f4;
   padding-left: 10px;
 }
+

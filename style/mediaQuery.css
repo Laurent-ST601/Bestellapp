@@ -1,65 +1,75 @@
-
 @media (max-width: 768px) {
-    
+
 
     .content-wrapper {
         flex-direction: column;
         align-items: center;
     }
-    
+
     .basket-wrapper {
-        display: none; 
+        display: none;
     }
 
-   
+
     .basket-wrapper.active {
-        display: block; 
+        display: block;
         position: fixed;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         background-color: #FFE4CE;
-        z-index: 101; 
+        z-index: 101;
         padding: 20px;
         box-sizing: border-box;
         overflow-y: auto;
+        
     }
 
-    
-    
+    .basket{
+        margin: 0%;
+    }
+
 
     .close-overlay-btn {
-    display: block;
-    padding: 5px;
-    background-color: #03a9f4;
-    color: white;
-    border: none;
-    font-family: "Nanum Gothic Coding", monospace;
-    font-weight: 700;
-    font-style: normal;
-    padding: 6px;
-    border-radius: 10px;
+        display: block;
+        padding: 5px;
+        background-color: #03a9f4;
+        color: white;
+        border: none;
+        font-family: "Nanum Gothic Coding", monospace;
+        font-weight: 700;
+        font-style: normal;
+        padding: 6px;
+        border-radius: 10px;
 
 
 
-}
+    }
 
-.responsive-basket-btn {
+    .responsive-basket-btn {
         display: flex;
         align-items: center;
         justify-content: space-between;
         gap: 15px;
     }
 
-    
+
     .responsive-basket-btn.hidden {
         display: none;
+    }
+
+    .th {
+        font-family: "Nanum Gothic Coding", monospace;
+        font-weight: 300;
+        font-style: normal;
+        color: black;
+
+
+
     }
 
 
 
 
-
-    
 }
