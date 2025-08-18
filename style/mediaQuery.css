@@ -23,10 +23,10 @@
         padding: 20px;
         box-sizing: border-box;
         overflow-y: auto;
-        
+
     }
 
-    .basket{
+    .basket {
         margin: 0%;
     }
 
@@ -69,7 +69,13 @@
 
     }
 
-
-
+   
+    .td{
+        text-align: match-parent;
+    }
+    
+    .content{
+        width: auto;
+    }
 
 }

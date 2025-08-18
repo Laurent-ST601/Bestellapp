@@ -142,10 +142,10 @@ function toggleBasketOverlay() {
     const basketOverlay = document.querySelector('.basket-wrapper');
     const mobileButton = document.querySelector('.responsive-basket-btn');
 
-    // Umschalten der 'active' Klasse für das Overlay
+    
     basketOverlay.classList.toggle('active');
 
-    // Umschalten der 'hidden' Klasse für den mobilen Button
+   
     mobileButton.classList.toggle('hidden');
 }
 

@@ -1,6 +1,6 @@
 body {
   margin: 0;
-  
+
   background-color: #FFE4CE;
 
 
@@ -38,9 +38,34 @@ header {
 
 }
 
+nav {
+  background-color: #ffa51f;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  gap: 15px;
+  padding: 8px;
+
+}
+
+a {
+  text-decoration: none;
+  color: black;
+  font-family: "Nanum Gothic Coding", monospace;
+  font-weight: bold;
+  font-style: normal;
+  
+}
+
+a:hover{
+  color: white;
+  text-shadow: 0 0 5px #03a9f4;
+}
+
 
 .content {
-  width: calc(100% - 300px);
+  width: calc(100% - 320px);
   padding: 16px;
 
 
@@ -49,6 +74,7 @@ header {
 .content-wrapper {
 
   display: flex;
+  justify-content: space-between;
 
 
 
@@ -61,8 +87,11 @@ header {
   padding: 16px;
   border-style: solid;
   border-color: #03a9f4;
-  
   margin-right: 15px;
+  position: sticky;
+  top: 10px;
+  height: 100vh;
+  overflow: auto;
 
 
 }
@@ -75,9 +104,8 @@ header {
   font-weight: 400;
   font-style: normal;
   margin: 15px;
-  position: sticky;
-  top: 0;
-  
+
+
 
 
 
@@ -123,12 +151,12 @@ p {
 
 }
 
-hr{
+hr {
   width: 90%;
   margin-top: 5px;
   margin-bottom: 5px;
   height: 3px;
- 
+
   background-color: #03a9f4;
 }
 
@@ -169,16 +197,18 @@ table {
 
 
 th {
-  color: black;
+
   font-family: "Nanum Gothic Coding", monospace;
-  
+
 }
 
 td {
-  color: black;
+
   font-family: "Nanum Gothic Coding", monospace;
   font-weight: 400;
 }
+
+
 
 tr {
   display: flex;
@@ -213,8 +243,16 @@ tr {
   object-fit: cover;
 }
 
+.drinks-img {
+  height: auto;
+  max-width: 100%;
+  aspect-ratio: 5 / 1;
+  object-fit: cover;
+}
+
+
+
 .mealrating {
   color: #03a9f4;
   padding-left: 10px;
 }
-
