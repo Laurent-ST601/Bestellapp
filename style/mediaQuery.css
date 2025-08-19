@@ -32,16 +32,20 @@
 
 
     .close-overlay-btn {
-        display: block;
-        padding: 5px;
+        display: grid;
+        justify-content: flex-end;
         background-color: #03a9f4;
         color: white;
         border: none;
         font-family: "Nanum Gothic Coding", monospace;
-        font-weight: 700;
+        font-weight: 900;
         font-style: normal;
-        padding: 6px;
+        padding: 10px 15px;
         border-radius: 10px;
+        margin-top:15px ;
+        margin-bottom: 15px;
+        margin-left: 85%;
+        cursor: pointer;
 
 
 
@@ -76,6 +80,10 @@
     
     .content{
         width: auto;
+    }
+ 
+    .card{
+        display: none;
     }
 
 }

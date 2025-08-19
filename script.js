@@ -1,5 +1,3 @@
-
-
 let keys = Object.keys(mymenu, mydesirt, mydrinks);
 let dishes = [];
 let basket = [];
@@ -10,53 +8,46 @@ const FREE_SHIPPING_THRESHOLD = 25;
 function init() {
     loadDishes();
     renderDishes();
-    renderBasekt()
+    renderBasekt();
+}
+
+
+function addDishesFromMenu(menu, category) {
+    const keys = Object.keys(menu);   
+    for (let i = 0; i < keys.length; i++) {
+        let key = keys[i];
+        dishes.push({ ...menu[key], category: category });
+    }
 }
 
 function loadDishes() {
-
-    const mainDishKeys = Object.keys(mymenu);
-    for (let i = 0; i < mainDishKeys.length; i++) {
-        let key = mainDishKeys[i];
-        dishes.push({ ...mymenu[key], category: 'main' });
-    }
-
-
-    const dessertKeys = Object.keys(mydesirt);
-    for (let i = 0; i < dessertKeys.length; i++) {
-        let key = dessertKeys[i];
-        dishes.push({ ...mydesirt[key], category: 'dessert' });
-    }
-
-
-    const drinkKeys = Object.keys(mydrinks);
-    for (let i = 0; i < drinkKeys.length; i++) {
-        let key = drinkKeys[i];
-        dishes.push({ ...mydrinks[key], category: 'drink' });
-    }
+    addDishesFromMenu(mymenu, 'main');
+    addDishesFromMenu(mydesirt, 'dessert');
+    addDishesFromMenu(mydrinks, 'drink');
 }
 
-function renderDishes() {
-    let mainDishesSection = document.getElementById('main_dishes_section');
-    let dessertDishesSection = document.getElementById('dessert_dishes_section');
-    let drinkDishesSection = document.getElementById('drink_dishes_section');
 
-    mainDishesSection.innerHTML = "";
-    dessertDishesSection.innerHTML = "";
-    drinkDishesSection.innerHTML = "";
+// function renderDishes() {
+//     let mainDishesSection = document.getElementById('main_dishes_section');
+//     let dessertDishesSection = document.getElementById('dessert_dishes_section');
+//     let drinkDishesSection = document.getElementById('drink_dishes_section');
 
-    for (let i = 0; i < dishes.length; i++) {
-        let dish = dishes[i];
-        let template = getMainDishesTemplate(i);
-        if (dish.category === 'main') {
-            mainDishesSection.innerHTML += template;
-        } else if (dish.category === 'dessert') {
-            dessertDishesSection.innerHTML += template;
-        } else if (dish.category === 'drink') {
-            drinkDishesSection.innerHTML += template;
-        }
-    }
-}
+//     mainDishesSection.innerHTML = "";
+//     dessertDishesSection.innerHTML = "";
+//     drinkDishesSection.innerHTML = "";
+
+//     for (let i = 0; i < dishes.length; i++) {
+//         let dish = dishes[i];
+//         let template = getMainDishesTemplate(i);
+//         if (dish.category === 'main') {
+//             mainDishesSection.innerHTML += template;
+//         } else if (dish.category === 'dessert') {
+//             dessertDishesSection.innerHTML += template;
+//         } else if (dish.category === 'drink') {
+//             drinkDishesSection.innerHTML += template;
+//         }
+//     }
+// }
 
 function increaseDishAmount(index) {
     basket[index]['amount']++;
@@ -78,15 +69,12 @@ function calculateTotal() {
     for (let i = 0; i < basket.length; i++) {
         subtotal += basket[i].price * basket[i].amount;
     }
-
     let total = subtotal;
     let shippingCost = 0;
-
     if (subtotal < FREE_SHIPPING_THRESHOLD) {
         total += SHIPPING_COST;
         shippingCost = SHIPPING_COST;
     }
-
     return {
         subtotal: subtotal.toFixed(2),
         shippingCost: shippingCost.toFixed(2),
@@ -94,21 +82,6 @@ function calculateTotal() {
     };
 }
 
-function getBasketTemplate(indexBasket) {
-    let basketItem = basket[indexBasket];
-    return `
-        <div>
-            <span>${basketItem.name} - ${basketItem.price.toFixed(2)}€</span>
-            <br>
-            <button class="Amountbuttons" onclick="increaseDishAmount(${indexBasket})">+</button>
-            <button class="Amountbuttons" onclick="decreaseDishAmount(${indexBasket})">-</button>
-            <br>
-            <span>Menge: ${basketItem.amount}</span>
-            <br>
-            <button class="deletbutton" onclick="removeDishFromBasket(${indexBasket})"></button>
-        </div>
-    `;
-}
 
 
 

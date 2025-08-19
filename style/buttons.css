@@ -58,7 +58,7 @@ button:active {
 
 }
 
-.Amountbuttons{
+.Amountbuttons {
     background-color: #03a9f4;
     color: white;
     border: none;
@@ -66,12 +66,38 @@ button:active {
     border-radius: 10px;
     margin-top: 5px;
     margin-bottom: 5px;
+    cursor: pointer;
 }
 
 .close-overlay-btn {
-    display: none; 
+    display: none;
 }
 
-.responsive-basket-btn{
+.responsive-basket-btn {
     display: none;
+}
+
+.plusbutton {
+    background-color: #03a9f4;
+    background-image: url("../assets/img/Icons/plus.png");
+    border: none;
+    width: 5px;
+    padding: 10px;
+    background-position: center;
+    /* background-size: cover; */
+    border-radius: 10px;
+    cursor: pointer;
+
+}
+
+.minusbutton {
+    background-color: #03a9f4;
+    background-image: url("../assets/img/Icons/minus.png");
+    border: none;
+    width: 8px;
+    padding: 10px;
+    background-position: center;
+    /* background-size: cover; */
+    border-radius: 10px;
+    cursor: pointer;
 }

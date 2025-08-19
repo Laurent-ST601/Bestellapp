@@ -18,4 +18,19 @@ function getMainDishesTemplate(index) {
     `;
 }
 
+function getBasketTemplate(indexBasket) {
+    let basketItem = basket[indexBasket];
+    return `
+        <div>
+            <span>${basketItem.name} - ${basketItem.price.toFixed(2)}€</span>
+            <br>
+            <button class="plusbutton" onclick="increaseDishAmount(${indexBasket})"></button>
+            <button class="minusbutton" onclick="decreaseDishAmount(${indexBasket})"></button>
+            <br>
+            <span>Menge: ${basketItem.amount}</span>
+            <br>
+            <button class="deletbutton" onclick="removeDishFromBasket(${indexBasket})"></button>
+        </div>
+    `;
+}
 
