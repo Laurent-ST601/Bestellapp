@@ -1,11 +1,6 @@
 body {
   margin: 0;
-
   background-color: #FFE4CE;
-
-
-
-
 }
 
 header {
@@ -14,6 +9,13 @@ header {
 
 }
 
+main {
+  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
 
 .logo-header {
   width: 90px;
@@ -39,6 +41,7 @@ nav {
   gap: 15px;
   padding: 8px;
   height: 50px;
+  width: 100%;
 
 }
 
@@ -48,10 +51,10 @@ a {
   font-family: "Nanum Gothic Coding", monospace;
   font-weight: bold;
   font-style: normal;
-  
+
 }
 
-a:hover{
+a:hover {
   color: white;
   text-shadow: 0 0 5px #03a9f4;
 }

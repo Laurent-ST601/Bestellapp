@@ -1,11 +1,13 @@
-function getMainDishesTemplate(index) {
-    let dish = dishes[index];
-
+function getMainDishesTemplate(dish) {
+  
     return `
         <table>
             <tr>
                 <th>${dish.name}</th>
-                <th><button onclick="addmenutobasket(${index})"  class="btn"></button></th>
+                <th>
+                    
+                    <button onclick="addmenutobasket('${dish.id}')" class="btn"></button>
+                </th>
             </tr>
             <tr>
                 <td>${dish.price.toFixed(2)}€</td>
@@ -18,19 +20,18 @@ function getMainDishesTemplate(index) {
     `;
 }
 
-function getBasketTemplate(indexBasket) {
-    let basketItem = basket[indexBasket];
+function getBasketTemplate(basketItem) {
     return `
         <div>
             <span>${basketItem.name} - ${basketItem.price.toFixed(2)}€</span>
             <br>
-            <button class="plusbutton" onclick="increaseDishAmount(${indexBasket})"></button>
-            <button class="minusbutton" onclick="decreaseDishAmount(${indexBasket})"></button>
+            <!-- Nutzt die ID des Warenkorb-Elements -->
+            <button class="plusbutton" onclick="increaseDishAmount('${basketItem.id}')"></button>
+            <button class="minusbutton" onclick="decreaseDishAmount('${basketItem.id}')"></button>
             <br>
             <span>Menge: ${basketItem.amount}</span>
             <br>
-            <button class="deletbutton" onclick="removeDishFromBasket(${indexBasket})"></button>
+            <button class="deletbutton" onclick="removeDishFromBasket('${basketItem.id}')"></button>
         </div>
     `;
 }
-

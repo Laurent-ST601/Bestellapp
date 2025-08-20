@@ -1,6 +1,7 @@
 let keys = Object.keys(mymenu, mydesirt, mydrinks);
 let dishes = [];
 let basket = [];
+let nextDishId = 0;
 
 const SHIPPING_COST = 2.50;
 const FREE_SHIPPING_THRESHOLD = 25;
@@ -13,10 +14,11 @@ function init() {
 
 
 function addDishesFromMenu(menu, category) {
-    const keys = Object.keys(menu);   
+    const keys = Object.keys(menu);
     for (let i = 0; i < keys.length; i++) {
         let key = keys[i];
-        dishes.push({ ...menu[key], category: category });
+        
+        dishes.push({ ...menu[key], id: `${category}-${nextDishId++}`, category: category });
     }
 }
 
@@ -26,43 +28,23 @@ function loadDishes() {
     addDishesFromMenu(mydrinks, 'drink');
 }
 
-
-// function renderDishes() {
-//     let mainDishesSection = document.getElementById('main_dishes_section');
-//     let dessertDishesSection = document.getElementById('dessert_dishes_section');
-//     let drinkDishesSection = document.getElementById('drink_dishes_section');
-
-//     mainDishesSection.innerHTML = "";
-//     dessertDishesSection.innerHTML = "";
-//     drinkDishesSection.innerHTML = "";
-
-//     for (let i = 0; i < dishes.length; i++) {
-//         let dish = dishes[i];
-//         let template = getMainDishesTemplate(i);
-//         if (dish.category === 'main') {
-//             mainDishesSection.innerHTML += template;
-//         } else if (dish.category === 'dessert') {
-//             dessertDishesSection.innerHTML += template;
-//         } else if (dish.category === 'drink') {
-//             drinkDishesSection.innerHTML += template;
-//         }
-//     }
-// }
-
-function increaseDishAmount(index) {
-    basket[index]['amount']++;
-    renderBasekt();
+function increaseDishAmount(dishId) {
+    let existingDish = basket.find(item => item.id === dishId);
+    if (existingDish) {
+        existingDish.amount++;
+        renderBasekt();
+    }
 }
 
-function decreaseDishAmount(index) {
-    if (basket[index]['amount'] > 1) {
-        basket[index]['amount']--;
-    } else {
-        removeDishFromBasket(index);
+function decreaseDishAmount(dishId) {
+    let existingDish = basket.find(item => item.id === dishId);
+    if (existingDish && existingDish.amount > 1) {
+        existingDish.amount--;
+    } else if (existingDish) {
+        removeDishFromBasket(dishId);
     }
     renderBasekt();
 }
-
 
 function calculateTotal() {
     let subtotal = 0;
@@ -82,9 +64,6 @@ function calculateTotal() {
     };
 }
 
-
-
-
 function removeDishFromBasket(index) {
     basket.splice(index, 1);
     renderBasekt();
@@ -97,61 +76,69 @@ function order() {
     renderBasekt();
 }
 
-function addmenutobasket(basketAddIndex) {
-    let dish = dishes[basketAddIndex];
-    let existingDishIndex = basket.findIndex(item => item.name === dish.name);
+function addmenutobasket(dishId) {
+    
+    let dish = dishes.find(d => d.id === dishId);
+    if (!dish) return; 
 
-    if (existingDishIndex > -1) {
-        basket[existingDishIndex].amount++;
+    let existingDish = basket.find(item => item.id === dishId);
+
+    if (existingDish) {
+        existingDish.amount++;
     } else {
-        dish.amount = 1;
-        basket.push(dish);
+        
+        let newDish = { ...dish, amount: 1 };
+        basket.push(newDish);
     }
 
     renderBasekt();
 }
-
 function toggleBasketOverlay() {
     const basketOverlay = document.querySelector('.basket-wrapper');
     const mobileButton = document.querySelector('.responsive-basket-btn');
-
-    
+   
     basketOverlay.classList.toggle('active');
 
    
     mobileButton.classList.toggle('hidden');
 }
 
-
 function renderBasekt() {
     let myBasket = document.getElementById('addmenutobasket');
-    myBasket.innerHTML = '';
-
-
-    myBasket.innerHTML += `<button class="close-overlay-btn" onclick="toggleBasketOverlay()">Back</button>`;
+    myBasket.innerHTML = `<button class="close-overlay-btn" onclick="toggleBasketOverlay()">Back</button>`;
 
     if (basket.length === 0) {
-        myBasket.innerHTML += `
-            <p>Dein Warenkorb ist noch leer.</p>
-        `;
-        document.getElementById('totalPriceMobile').innerText = '0,00 €';
-
+        renderEmptyBasket(myBasket);
     } else {
-        for (let indexBasket = 0; indexBasket < basket.length; indexBasket++) {
-            myBasket.innerHTML += getBasketTemplate(indexBasket);
-        }
-
-        let totals = calculateTotal();
-        document.getElementById('totalPriceMobile').innerText = `${totals.total} €`;
-
-        myBasket.innerHTML += `
-            <div class="basket-total">
-                <hr>
-                <div><span>Zwischensumme:</span><span>${totals.subtotal}€</span></div>
-                <div><span>Lieferkosten:</span><span>${totals.shippingCost}€</span></div>
-                <div><span><b>Gesamt:</b></span><span><b>${totals.total}€</b></span></div>
-                <button class="basketpay" onclick="order()">Bestellen</button>
-            </div>
-        `;
+        renderBasketItems(myBasket);
+        renderBasketTotals(myBasket);
     }
+}
+
+function renderEmptyBasket(myBasket) {
+    myBasket.innerHTML += `
+        <p>Dein Warenkorb ist noch leer.</p>
+    `;
+    document.getElementById('totalPriceMobile').innerText = '0,00 €';
+}
+
+function renderBasketItems(myBasket) {
+    for (let i = 0; i < basket.length; i++) {
+        myBasket.innerHTML += getBasketTemplate(basket[i]);
+    }
+}
+
+function renderBasketTotals(myBasket) {
+    let totals = calculateTotal();
+    document.getElementById('totalPriceMobile').innerText = `${totals.total} €`;
+
+    myBasket.innerHTML += `
+        <div class="basket-total">
+            <hr>
+            <div><span>Zwischensumme:</span><span>${totals.subtotal}€</span></div>
+            <div><span>Lieferkosten:</span><span>${totals.shippingCost}€</span></div>
+            <div><span><b>Gesamt:</b></span><span><b>${totals.total}€</b></span></div>
+            <button class="basketpay" onclick="order()">Bestellen</button>
+        </div>
+    `;
 }

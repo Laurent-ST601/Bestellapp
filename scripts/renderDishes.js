@@ -1,3 +1,4 @@
+
 function renderDishes() {
     let mainDishesSection = document.getElementById('main_dishes_section');
     let dessertDishesSection = document.getElementById('dessert_dishes_section');
@@ -9,7 +10,8 @@ function renderDishes() {
 
     for (let i = 0; i < dishes.length; i++) {
         let dish = dishes[i];
-        let template = getMainDishesTemplate(i);
+       
+        let template = getMainDishesTemplate(dish); 
         if (dish.category === 'main') {
             mainDishesSection.innerHTML += template;
         } else if (dish.category === 'dessert') {
